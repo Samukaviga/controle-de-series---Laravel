@@ -1,0 +1,80 @@
+
+body {
+    background-color: rgb(241, 238, 233);
+}
+
+.container {
+    margin: 2em;
+    width: 500px;
+}
+
+.series__lista {
+    padding: 0;
+}
+
+.series__lista-item {
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px black;
+    padding: 1em;
+    background-color: antiquewhite;
+    list-style-type: none;
+}
+
+.series__botoes-div {
+    display: flex;
+    gap: 5px;
+}
+
+.botao__adicionar {
+    text-decoration: none;
+    background-color: rgb(80, 153, 153);
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+}
+
+.botao__editar {
+    padding: 0.3em 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(68, 165, 97);
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.botao__excluir {
+    padding: 0.3em 1.2em;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(165, 83, 68);
+    color: white;
+    
+}
+
+/* Create */
+
+.mensagemSucesso {
+    background-color: rgb(140, 202, 150);
+    color: aliceblue;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 1em;
+}
+
+.mensagemErro-div {
+
+    width: 500px;
+    margin-bottom: 0.5em ;
+}
+
+.mensagemErro {
+    background-color: rgb(216, 157, 130);
+    color: aliceblue;
+    text-align: center;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin-top: 1em;
+}
