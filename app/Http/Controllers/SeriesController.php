@@ -3,12 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SeriesFormRequest;
+use App\Models\Episodios;
 use Illuminate\Http\Request;
 use App\Models\Series;
-
+use App\Models\Temporadas;
+use App\Repositories\EloquentSeriesRepositorio;
+use App\Repositories\SeriesRepositorio;
+use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
 {
+
+
+    public function __construct(private SeriesRepositorio $repositorio)
+    {
+    }
+
     
     public function index(Request $request)
     {
@@ -21,13 +31,11 @@ class SeriesController extends Controller
         //$request->session()->forget('mensagem.sucesso'); //esquecendo mensagem
         //return view('series.index', ['series' => $series]);
 
-       $mensagemSucesso = session('mensagem.sucesso');
+        $mensagemSucesso = session('mensagem.sucesso');
         session()->forget('mensagem.sucesso');
         
-
         return view('series.index')->with('series', $series)
                                     ->with('mensagemSucesso', $mensagemSucesso);
-        
     }
 
 
@@ -38,25 +46,18 @@ class SeriesController extends Controller
 
     public function store(SeriesFormRequest $request)
     {
-       
-       // $nome = $request->nome;
-    
-       $serie = Series::create($request->all());
-
-       // session(['mensagem.sucesso' => "Série '$serie->nome' adicionada com sucesso!!"]);
-
+        $serie = $this->repositorio->add($request);
+        
         return redirect('/series')->with('mensagem.sucesso', "Série '$serie->nome' adicionada com sucesso!!");
     }
 
     public function edit(Series $series, Request $request)
     {   
-
         $serie = $series::find($request->id);
 
         return view("series.edit")->with('id', $request->id)
                                     ->with('nome', $serie->nome);
     }
-
 
     public function update(Series $series, SeriesFormRequest $request)
     {   

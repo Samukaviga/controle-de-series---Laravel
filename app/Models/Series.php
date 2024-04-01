@@ -15,7 +15,7 @@ class Series extends Model
 
     public function temporadas() {
         
-        return $this->hasMany(Temporadas::class, 'series_id');
+        return $this->hasMany(Temporadas::class, 'series_id'); //na tabela temporadas tem a chava estrangeira 'series_id'
     
     }
 

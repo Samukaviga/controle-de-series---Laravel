@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('epsodios', function (Blueprint $table) {
+        Schema::create('temporadas', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('numero');
-            $table->unsignedBigInteger('temporadas_id');
-            $table->foreign('temporadas_id')->references('id')->on('temporadas');
-            
+            $table->unsignedBigInteger('series_id');
+            $table->foreign('series_id')->references('id')->on('series')->onDelete('cascade');
+            $table->timestamps();
         });
+
     }
 
     /**
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('epsodios');
+        Schema::dropIfExists('temporadas');
     }
 };

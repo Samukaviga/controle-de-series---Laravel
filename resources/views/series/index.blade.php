@@ -12,7 +12,7 @@
     <ul class="series__lista">
          @foreach($series as $serie)
         
-         <li class="series__lista-item"> {{ $serie->nome }} 
+         <li class="series__lista-item"> <a href="/series/{{ $serie->id }}/temporadas">{{ $serie->nome }}</a> 
             <div class="series__botoes-div">
                 <form action="/series/{{ $serie->id }}" method="post">
                     @csrf

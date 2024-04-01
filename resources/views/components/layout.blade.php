@@ -12,6 +12,12 @@
 
         <h1>{{ $title }}</h1>
 
+        @isset($mensagemSucesso)
+            <div class="mensagemSucesso" >
+                {{ $mensagemSucesso }}
+            </div>
+        @endisset
+
         <!-- Mensagens de erro -->
         @if ($errors->any())
         <div class="mensagemErro-div">

@@ -24,7 +24,36 @@ body {
 .series__botoes-div {
     display: flex;
     gap: 5px;
+  
 }
+
+/* Episodios Contagem */
+
+.series__episodios-div {
+    display: flex;
+    gap: 5px;
+    background-color: rgba(39, 39, 39, 0.377);
+    padding: 0.4em;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.series__episodios-div:hover {
+    background-color: rgba(0, 0, 0, 0.377);
+}
+
+.series__episodios-div a {
+    text-decoration: none;
+    color: rgb(245, 238, 238);
+    font-weight: 700;
+}
+
+.episodio__botoes-div{
+    display: flex;
+    gap: 5px;
+}
+
+
 
 .botao__adicionar {
     text-decoration: none;
@@ -32,6 +61,24 @@ body {
     color: white;
     padding: 0.5em 1em;
     border-radius: 5px;
+}
+
+.botao__salvar {
+    text-decoration: none;
+    background-color: rgb(80, 153, 153);
+    color: white;
+    border: none;
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    margin-top: 1em;
+    transition: 0.3s;
+    margin-bottom: 1em;
+}
+
+.botao__salvar:hover{
+    background-color: rgb(39, 88, 88);
+    
 }
 
 .botao__editar {
@@ -44,6 +91,8 @@ body {
     font-size: 14px;
 }
 
+
+
 .botao__excluir {
     padding: 0.3em 1.2em;
     border: none;
@@ -52,6 +101,17 @@ body {
     color: white;
     
 }
+
+.botao__cadastrar{
+    color:rgb(79, 92, 92);
+    font-size: 20px;
+}
+
+.botao__cadastrar-div{
+    margin-top: 1em;
+}
+
+
 
 /* Create */
 
@@ -77,4 +137,32 @@ body {
     padding: 0.5em;
     border-radius: 5px;
     margin-top: 1em;
+}
+
+/* Formulario */
+
+.form-create{
+    width: 700px;
+}
+
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1em;
+    width: 100%;
+    
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.8em;
+    width: 200px;
+    gap: 5px;
+    align-items: start;
+    justify-content: start;
 }

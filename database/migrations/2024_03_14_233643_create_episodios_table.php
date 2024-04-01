@@ -6,19 +6,16 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+   
     public function up()
     {
-        Schema::create('temporadas', function (Blueprint $table) {
+        Schema::create('episodios', function (Blueprint $table) {
             $table->id();
             $table->unsignedTinyInteger('numero');
-            $table->unsignedBigInteger('series_id');
-            $table->foreign('series_id')->references('id')->on('series');
-            $table->timestamps();
+            $table->unsignedTinyInteger('assistido');
+            $table->unsignedBigInteger('temporadas_id');
+            $table->foreign('temporadas_id')->references('id')->on('temporadas')->onDelete('cascade');
+            
         });
     }
 
@@ -29,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('temporadas');
+        Schema::dropIfExists('episodios');
     }
 };
