@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UsuariosController extends Controller
 {
@@ -18,9 +21,16 @@ class UsuariosController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(Request $request, User $usuario)
     {
-        dd($request->all());
+        $dados = $request->except('_token');
+
+        $dados['password'] = Hash::make($dados['password']); //https://laravel.com/docs/9.x/validation#rule-confirmed
+
+        $user = User::create($dados);
+        Auth::login($user);
+
+        return redirect('/');
     }
 
 
@@ -41,8 +51,8 @@ class UsuariosController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+      
     }
 }

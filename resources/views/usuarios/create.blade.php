@@ -6,13 +6,13 @@
         <div class="form-login">
 
                 <label>Nome</label>
-                <input autofocus type="text" name="nome" >
+                <input autofocus type="text" name="name" >
     
                 <label>Email</label>
                 <input type="email" name="email" >
        
                 <label>Senha</label>
-                <input type="password" name="senha">
+                <input type="password" name="password">
           
 
         </div>

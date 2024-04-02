@@ -27,6 +27,8 @@ class LoginController extends Controller
             return redirect()->back()->withErrors('Usuario ou senha invalidos!');
     
         }
+
+        return redirect('/');
     }
 
 
@@ -48,8 +50,10 @@ class LoginController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy()
     {
-        //
+        Auth::logout();
+
+        return redirect('/login');
     }
 }

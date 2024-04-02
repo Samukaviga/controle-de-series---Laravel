@@ -8,6 +8,10 @@
 </head>
 <body> 
 
+    <nav>
+            <a href="/sair">Sair</a>
+    </nav>
+
     <section class="container">
 
         <h1>{{ $title }}</h1>

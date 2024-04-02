@@ -41,6 +41,7 @@ Route::put('/temporadas/{id}/episodios', [EpisodiosController::class, 'update'])
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'logar']);
+Route::get('/sair', [LoginController::class, 'destroy']);
 
 Route::get('/usuarios/criar', [UsuariosController::class, 'create']);
 Route::post('/usuarios', [UsuariosController::class, 'store']);
