@@ -9,7 +9,9 @@
 <body> 
 
     <nav>
+        @auth
             <a href="/sair">Sair</a>
+        @endauth
     </nav>
 
     <section class="container">

@@ -9,6 +9,7 @@ use App\Models\Series;
 use App\Models\Temporadas;
 use App\Repositories\EloquentSeriesRepositorio;
 use App\Repositories\SeriesRepositorio;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class SeriesController extends Controller
@@ -24,6 +25,7 @@ class SeriesController extends Controller
     {
 
        // $request->get('id');
+
     
         $series = Series::query()->orderBy('nome')->get();
 
