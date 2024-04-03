@@ -10,8 +10,12 @@
 
     <nav>
         @auth
-            <a href="/sair">Sair</a>
+            <a href="{{ route('sair') }}">Sair</a>
         @endauth
+            
+        @guest
+            <a href="{{ route('login') }}">Entrar</a>
+        @endguest
     </nav>
 
     <section class="container">

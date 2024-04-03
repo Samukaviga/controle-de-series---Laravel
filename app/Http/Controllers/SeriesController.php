@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\Autenticador;
 use App\Http\Requests\SeriesFormRequest;
 use App\Models\Episodios;
 use Illuminate\Http\Request;
@@ -18,6 +19,7 @@ class SeriesController extends Controller
 
     public function __construct(private SeriesRepositorio $repositorio)
     {
+        $this->middleware('autenticador')->except('index');
     }
 
     
@@ -25,7 +27,6 @@ class SeriesController extends Controller
     {
 
        // $request->get('id');
-
     
         $series = Series::query()->orderBy('nome')->get();
 

@@ -20,28 +20,34 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/', function () {
+
+
+Route::middleware('autenticador')->group(function () {
+
+    Route::get('/', function () {
+        return redirect('/series');
+    });
     
-    return redirect('/series');
+    Route::get('/series', [SeriesController::class, 'index']);
+    Route::get('/series/criar', [SeriesController::class, 'create']);
+    Route::post('/series', [SeriesController::class, 'store']);
+    Route::delete('/series/{id}', [SeriesController::class, 'destroy']);
+    Route::get('/series/{id}/editar', [SeriesController::class, 'edit']);
+    Route::put('/series/{id}', [SeriesController::class, 'update']);
+    
+    Route::get('/series/{id}/temporadas', [TemporadasController::class, 'index']);
+    
+    Route::get('/temporadas/{id}/episodios', [EpisodiosController::class, 'index']);
+    Route::put('/temporadas/{id}/episodios', [EpisodiosController::class, 'update']);
+    
+});
 
-})->middleware(Autenticador::class);
 
 
-Route::get('/series', [SeriesController::class, 'index']);
-Route::get('/series/criar', [SeriesController::class, 'create']);
-Route::post('/series', [SeriesController::class, 'store']);
-Route::delete('/series/{id}', [SeriesController::class, 'destroy']);
-Route::get('/series/{id}/editar', [SeriesController::class, 'edit']);
-Route::put('/series/{id}', [SeriesController::class, 'update']);
-
-Route::get('/series/{id}/temporadas', [TemporadasController::class, 'index']);
-
-Route::get('/temporadas/{id}/episodios', [EpisodiosController::class, 'index']);
-Route::put('/temporadas/{id}/episodios', [EpisodiosController::class, 'update']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'logar']);
-Route::get('/sair', [LoginController::class, 'destroy']);
+Route::get('/sair', [LoginController::class, 'destroy'])->name('sair');
 
 Route::get('/usuarios/criar', [UsuariosController::class, 'create']);
 Route::post('/usuarios', [UsuariosController::class, 'store']);
